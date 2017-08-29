@@ -33,11 +33,6 @@
     "no-shadow": [1, { "allow": ["req", "res", "err"] }],
     "no-undef": 0,
     "jsx-quotes": 1,
-    "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      }
-    },
     "class-methods-use-this": 0,
     "react/display-name": [ 1, {"ignoreTranspilerName": false }],
     "react/forbid-prop-types": [1, {"forbid": ["any"]}],
@@ -83,5 +78,12 @@
         "ClassDeclaration": false
       }
     }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
   }
 }
