@@ -19,6 +19,4 @@ ratings:
   paths:
   - client/*.js
   - server/*.js
-exclude_paths: [
-  - dist/*.js
-]
+exclude_paths: []
