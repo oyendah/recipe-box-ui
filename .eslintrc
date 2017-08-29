@@ -77,6 +77,13 @@
         "MethodDefinition": false,
         "ClassDeclaration": false
       }
-    }]
+    }],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"]
+        }
+      }
+    }
   }
 }
