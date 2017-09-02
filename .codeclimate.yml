@@ -12,6 +12,8 @@ engines:
         enabled: false
       Identical code:
         enabled: false
+      import/no-unresolved:
+        enabled: false
     config:
       languages:
       - javascript
