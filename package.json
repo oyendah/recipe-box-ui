@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "webpack",
-    "start": "node bin/srcServer.js",
+    "start": "node tools/srcServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,7 +14,9 @@
   },
   "author": "Subair O.A",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-import-resolver-webpack": "^0.8.3"
+  },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -38,6 +40,7 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.16.1",
     "json-loader": "^0.5.7",
@@ -52,6 +55,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "next",
+    "react-skeleton-css": "^1.0.2",
     "redux": "^3.7.2",
     "redux-devtools": "^3.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
@@ -60,6 +64,7 @@
     "redux-immutable-state-invariant": "^2.0.0",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
+    "skeleton-css": "^2.0.4",
     "stats-webpack-plugin": "^0.3.1",
     "style-loader": "^0.18.2",
     "webpack": "3.1.0",

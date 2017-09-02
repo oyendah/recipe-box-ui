@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Arsenal|Lobster');
+body {
+  font-family: 'Arsenal', sans-serif;
+  background-color: #f1f4fa;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: inherit;
+  &:before, &:after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: pink;
+  padding: 20px;
+  margin: 50px;
+}
+
+.search {
+  flex: 1;
+}
+
+nav.primary {
+  display: table;
+  margin: 0 auto;
+  ul {
+    margin: 0px;
+    li {
+      margin: 0px;
+    }
+  }
+  select {
+    display: none;
+    width: 100%;
+    height: 28px;
+    margin: 21px 0;
+  }
+  ul li {
+    display: inline;
+    position: relative;
+    a {
+      display: inline-block;
+      line-height: 49px;
+      padding: 0 14px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      &:hover {
+        background: #01579b;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+  ul ul li a {
+    white-space: nowrap;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+}
+.navbar-fixed {
+  z-index: 9999;
+}
+
+.active {
+  background: #01579b;
+  color: #ffffff;
+}

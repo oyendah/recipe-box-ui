@@ -3,6 +3,20 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const ALIASES = {
+  tools: path.resolve(__dirname, 'tools'),
+  src: path.resolve(__dirname, 'src'),
+  actions: path.resolve(__dirname, 'src/actions'),
+  components: path.resolve(__dirname, 'src/components'),
+  constant: path.resolve(__dirname, 'src/constants'),
+  containers: path.resolve(__dirname, 'src/containers'),
+  images: path.resolve(__dirname, 'src/images'),
+  reducers: path.resolve(__dirname, 'src/reducers'),
+  store: path.resolve(__dirname, 'src/store'),
+  styles: path.resolve(__dirname, 'src/styles'),
+  utils: path.resolve(__dirname, 'src/utils'),
+};
+
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
@@ -31,6 +45,11 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin()
   ],
+  resolve: {
+    alias: ALIASES,
+    extensions: ['*', '.js', '.jsx', '.json', '.css', '.scss'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules']
+  },
   module: {
     rules: [
       {
@@ -49,9 +68,9 @@ module.exports = {
         loader: 'json-loader'
       },
       {
-        test: /\.scss$/,
+        test: /\.scss|css$/,
         loader:
-          'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'
+          'style-loader!css-loader?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass-loader'
       },
       {
         test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
