@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Arsenal|Lobster');
 body {
-  font-family: 'Arsenal', sans-serif;
+  font-family: 'Arsenal', sans-serif !important;
   background-color: #f1f4fa;
   display: flex;
   min-height: 100vh;
@@ -80,3 +80,127 @@ main {
   background: #01579b;
   color: #ffffff;
 }
+
+.success {
+  background-color: green;
+  color: #fff;
+}
+
+.error {
+  background-color: red;
+  color: #fff;
+}
+
+// card css
+.card-panel {
+  -webkit-transition: -webkit-box-shadow .25s;
+  transition: -webkit-box-shadow .25s;
+  transition: box-shadow .25s;
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+  padding: 24px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  -webkit-transition: -webkit-box-shadow .25s;
+  transition: -webkit-box-shadow .25s;
+  transition: box-shadow .25s;
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+  border-radius: 2px;
+  .card-title {
+    font-size: 24px;
+    font-weight: 300;
+    &.activator {
+      cursor: pointer;
+    }
+  }
+  &.small, &.medium, &.large {
+    position: relative;
+  }
+  &.small .card-image, &.medium .card-image, &.large .card-image {
+    max-height: 60%;
+    overflow: hidden;
+  }
+  &.small .card-image + .card-content, &.medium .card-image + .card-content, &.large .card-image + .card-content {
+    max-height: 40%;
+  }
+  &.small .card-content, &.medium .card-content, &.large .card-content {
+    max-height: 100%;
+    overflow: hidden;
+  }
+  &.small .card-action, &.medium .card-action, &.large .card-action {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &.small {
+    height: 300px;
+  }
+  &.medium {
+    height: 400px;
+  }
+  &.large {
+    height: 500px;
+  }
+  &.horizontal {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    &.small .card-image, &.medium .card-image, &.large .card-image {
+      height: 100%;
+      max-height: none;
+      overflow: visible;
+    }
+    &.small .card-image img, &.medium .card-image img, &.large .card-image img {
+      height: 100%;
+    }
+    .card-image {
+      max-width: 50%;
+      img {
+        border-radius: 2px 0 0 2px;
+        max-width: 100%;
+        width: auto;
+      }
+    }
+    .card-stacked {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      position: relative;
+    }
+  }
+  .card-content {
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+    p {
+      margin: 0;
+      color: inherit;
+    }
+    .card-title {
+      display: block;
+      line-height: 32px;
+      margin-bottom: 8px;
+      i {
+        line-height: 32px;
+      }
+    }
+  }
+}
+// card css

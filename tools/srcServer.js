@@ -23,7 +23,8 @@ new WebpackDevServer(webpack(config), {
     timings: false,
     chunks: false,
     chunkModules: false
-  }
+  },
+  headers: { 'Access-Control-Allow-Origin': '*' }
 }).listen(port, 'localhost', (err) => {
   if (err) {
     console.log(err);

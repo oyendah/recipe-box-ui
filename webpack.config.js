@@ -54,7 +54,7 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.js$/,
+        test: /(\.js|\.jsx)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
       },
@@ -64,13 +64,22 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loaders: ['babel-loader']
+      },
+      {
         test: /\.json?$/,
         loader: 'json-loader'
       },
+      // {
+      //   test: /\.scss|css$/,
+      //   loader:
+      //     'style-loader!css-loader?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass-loader'
+      // },
       {
-        test: /\.scss|css$/,
-        loader:
-          'style-loader!css-loader?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass-loader'
+        test: /(\.css|\.scss|\.sass)$/,
+        loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
       },
       {
         test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
