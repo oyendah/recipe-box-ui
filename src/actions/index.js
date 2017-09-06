@@ -1,3 +1,3 @@
-export { login, loginResponse } from './authAction';
+export { login, loginResponse, signup, logout } from './authAction';
 export { addFlashMessage, deleteFlashMessage } from './flashMessage';
 

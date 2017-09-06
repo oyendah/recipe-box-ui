@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 // import _ from 'lodash';
-import toastr from 'toastr';
-import { ToastContainer, ToastMessage } from 'react-toastr';
 import LoginForm from './LoginForm';
-import { login, addFlashMessage } from '../../actions';
-
-const ToastMessageFactory = React.createFactory(ToastMessage.animation);
+import { login } from '../../actions';
+import urls from '../../constants/urls';
+import toast from '../../utils/toast';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -21,15 +19,6 @@ class LoginPage extends React.Component {
 
     this.onSave = this.onSave.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.renderErrorMessage = this.renderErrorMessage.bind(this);
-    this.onAlert = this.onAlert.bind(this);
-  }
-
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.error) {
-      this.renderErrorMessage(prevState.error);
-    }
   }
 
   onChange(event) {
@@ -42,41 +31,24 @@ class LoginPage extends React.Component {
   onSave(event) {
     event.preventDefault();
 
-    this
-      .props
-      .login(this.state.user)
-      .then(() => {
-        if (!this.props.errorMessage) {
-          this.redirect();
-        } else {
-          this.setState({ error: this.props.errorMessage });
-        }
-      })
+    this.props.login(this.state.user).then(() => {
+      if (!this.props.errorMessage) {
+        toast.success('logged in successfully');
+        this.redirect();
+      } else {
+        this.setState({ error: this.props.errorMessage });
+        toast.error(this.props.errorMessage);
+      }
+    })
       .catch(() => {
-        toastr.error('Unable to login');
+        toast.error('Unable to login');
       });
-  }
-
-  onAlert() {
-    this.props.addFlashMessage({
-      type: 'error', text: 'Unable to login' });
   }
 
   redirect() {
-    this.props.history.push('/');
+    this.props.history.push(urls.HOME_PATH);
   }
 
-  renderErrorMessage(message) {
-    return this.refs.container.error(message,
-      'Error', {
-        timeOut: 10000,
-        extendedTimeOut: 10000,
-        preventDuplicates: true,
-        positionClass: 'toast-bottom-full-width',
-        showMethod: 'fadeIn',
-        hideMethod: 'fadeOut'
-      });
-  }
   /**
    * React Render
    * @return {object} html
@@ -90,15 +62,9 @@ class LoginPage extends React.Component {
             <LoginForm
               onChange={this.onChange}
               onSave={this.onSave}
-              onAlert={this.onAlert}
             />
           </div>
         </div>
-        <ToastContainer
-          toastMessageFactory={ToastMessageFactory}
-          ref="container"
-          className="toast-top-right"
-        />
       </div>
     );
   }
@@ -122,7 +88,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     login,
-    addFlashMessage,
   }, dispatch);
 };
 

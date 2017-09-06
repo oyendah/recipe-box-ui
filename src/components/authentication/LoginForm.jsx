@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Input from '../common/Input';
 import Button from '../common/Button';
 
-const LoginForm = ({ onSave, onChange, onAlert }) =>
+const LoginForm = ({ onSave, onChange }) =>
 
   <div>
     <div className="row">
@@ -15,6 +15,7 @@ const LoginForm = ({ onSave, onChange, onAlert }) =>
           id="email"
           onChange={onChange}
           placeholder="email address"
+          icon="fa fa-user"
         />
       </div>
     </div>
@@ -27,24 +28,21 @@ const LoginForm = ({ onSave, onChange, onAlert }) =>
           id="password"
           onChange={onChange}
           placeholder="password"
+          icon="fa fa-lock"
         />
       </div>
     </div>
     <Button
       type="submit"
       value="Login"
-      onClick={onSave}/>
-    <Button
-      type="submit"
-      value="Alert"
-      onClick={onAlert}/>
+      onClick={onSave}
+      classType="button-primary"/>
   </div>;
 
 
 LoginForm.propTypes = {
   onSave: PropTypes.func,
   onChange: PropTypes.func,
-  onAlert: PropTypes.func,
 };
 
 export default LoginForm;
