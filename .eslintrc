@@ -74,15 +74,13 @@
     }],
     "require-jsdoc": [1, {
       "require": {
-        "FunctionDeclaration": true,
+        "FunctionDeclaration": false,
         "MethodDefinition": false,
         "ClassDeclaration": false
       }
     }]
   },
   "settings": {
-    "import/resolver": {
-      "webpack": { "config": "webpack.config.js" }
-    }
+    "import/resolver": "webpack"
   }
 }

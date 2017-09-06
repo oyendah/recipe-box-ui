@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Label from './Label';
 
-const Input = ({ type, value, onChange, placeholder, id, label }) =>
+const Input = ({ type, value, onChange, placeholder, id, label, name }) =>
   <div>
     <Label forInput={id} name={label} />
     <input
@@ -12,7 +12,8 @@ const Input = ({ type, value, onChange, placeholder, id, label }) =>
       placeholder={placeholder}
       onChange={onChange}
       id={id}
-      label={label}/>
+      label={label}
+      name={name}/>
   </div>
 ;
 
@@ -22,7 +23,8 @@ Input.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.string,
+  name: PropTypes.string
 };
 
 export default Input;

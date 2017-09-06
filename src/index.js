@@ -5,6 +5,10 @@ import { AppContainer } from 'react-hot-loader';
 import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
 import './styles/styles.scss';
+import './styles/normalize.css';
+import './styles/skeleton.css';
+import '../node_modules/toastr/build/toastr.min.css';
+
 
 const store = configureStore();
 
