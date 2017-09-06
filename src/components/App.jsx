@@ -16,7 +16,7 @@ class App extends React.Component {
           errorMessage={errorMessage}
           logout={this.props.logout}/>
         <FlashMessagesList />
-        { Routes }
+        {Routes}
       </div>
     );
   }
