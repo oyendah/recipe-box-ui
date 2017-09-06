@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "webpack",
-    "start": "node tools/srcServer.js",
+    "start": "babel-node tools/srcServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,13 +15,17 @@
   "author": "Subair O.A",
   "license": "ISC",
   "devDependencies": {
-    "eslint-import-resolver-webpack": "^0.8.3"
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-react": "^7.3.0"
   },
   "dependencies": {
     "axios": "^0.16.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-display-name": "^2.0.0",
@@ -34,16 +38,13 @@
     "babel-preset-stage-2": "^6.24.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.5",
-    "eslint": "^4.5.0",
-    "eslint-config-airbnb-base": "^11.3.2",
     "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-loader": "^1.5.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-react": "^7.3.0",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "font-awesome": "^4.7.0",
+    "g": "^2.0.1",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.16.1",
     "jquery": "^3.2.1",

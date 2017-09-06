@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const config = require('../webpack.config');
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
+import config from '../webpack.config';
 
 const port = process.env.PORT || 5000;
 

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const ALIASES = {
   tools: path.resolve(__dirname, 'tools'),
@@ -18,7 +18,7 @@ const ALIASES = {
   jquery: path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js'),
 };
 
-module.exports = {
+const config = {
   devtool: 'eval-source-map',
   entry: [
     'babel-polyfill',
@@ -79,14 +79,9 @@ module.exports = {
         test: /\.json?$/,
         loader: 'json-loader'
       },
-      // {
-      //   test: /\.scss|css$/,
-      //   loader:
-      //     'style-loader!css-loader?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass-loader'
-      // },
       {
         test: /(\.css|\.scss|\.sass)$/,
-        loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+        loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']
       },
       {
         test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
@@ -96,3 +91,5 @@ module.exports = {
     ]
   }
 };
+
+export default config;
