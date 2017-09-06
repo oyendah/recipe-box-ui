@@ -15,6 +15,7 @@ const ALIASES = {
   store: path.resolve(__dirname, 'src/store'),
   styles: path.resolve(__dirname, 'src/styles'),
   utils: path.resolve(__dirname, 'src/utils'),
+  jquery: path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js'),
 };
 
 module.exports = {
@@ -43,7 +44,13 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     }),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Hammer: 'hammerjs/hammer'
+    }),
   ],
   resolve: {
     alias: ALIASES,

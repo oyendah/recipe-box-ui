@@ -4,7 +4,7 @@ import NavBarLink from './NavBarLink';
 
 class Header extends React.Component {
   render() {
-    const { isAuthenticated } = this.props;
+    const { isAuthenticated, logout } = this.props;
     return (
 
       <div className="band navigation">
@@ -18,7 +18,8 @@ class Header extends React.Component {
                 }
                 {!isAuthenticated ?
                   <li><NavBarLink to="/signup">Sign Up</NavBarLink></li> :
-                  <li><NavBarLink to="/login">Logout</NavBarLink></li>
+                  <li onClick={logout}>
+                    <NavBarLink to="/login">Logout</NavBarLink></li>
                 }
               </ul>
             </div>
@@ -30,7 +31,8 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
+  logout: PropTypes.func,
 };
 
 export default Header;

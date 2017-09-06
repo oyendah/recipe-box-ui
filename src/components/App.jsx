@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Routes from '../routes';
 import Header from './common/Header';
 import FlashMessagesList from '../components/flash/FlashMessageList';
+import { logout } from '../actions';
 
 class App extends React.Component {
   render() {
@@ -12,7 +13,8 @@ class App extends React.Component {
       <div>
         <Header
           isAuthenticated={isAuthenticated}
-          errorMessage={errorMessage}/>
+          errorMessage={errorMessage}
+          logout={this.props.logout}/>
         <FlashMessagesList />
         { Routes }
       </div>
@@ -23,6 +25,7 @@ class App extends React.Component {
 App.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string,
+  logout: PropTypes.func,
 };
 
 
@@ -36,4 +39,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { logout })(App);

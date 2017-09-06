@@ -4,9 +4,7 @@ import classnames from 'classnames';
 class FlashMessage extends React.Component {
   constructor(props) {
     super(props);
-    this.onClick = this
-      .onClick
-      .bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
@@ -23,8 +21,8 @@ class FlashMessage extends React.Component {
           <div
             id="card-alert"
             className={classnames('card', {
-              green: type === 'success',
-              red: type === 'error'
+              success: type === 'success',
+              error: type === 'error'
             })}>
             <div className="card-content">
               <p>{text}</p>

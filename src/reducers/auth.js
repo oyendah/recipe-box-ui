@@ -33,6 +33,12 @@ export default (state = initialState, action) => {
       isAuthenticated: false,
       errorMessage: action.message
     });
+
+  case types.LOGOUT_SUCCESS:
+    return Object.assign({}, state, {
+      isFetching: true,
+      isAuthenticated: false
+    })
   default: return state;
   }
 };

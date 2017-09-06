@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import toastr from 'toastr';
 import PropTypes from 'prop-types';
-// import 'react-toastify/dist/ReactToastify.min.css';
-// import { toast } from 'react-toastify';
+import toast from '../utils/toast';
+import urls from '../constants/urls';
 
 /**
  *
@@ -16,15 +15,15 @@ export default function (ComposedComponent) {
   class Authenticate extends React.Component {
     componentWillMount() {
       if (!this.props.isAuthenticated) {
-        this.props.history.push('/login');
-        toastr.error('You need to login to access this page');
+        toast.error('You need to login to access this page');
+        this.props.history.push(urls.LOGIN_PATH);
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!nextProps.isAuthenticated) {
-        this.props.history.push('/login');
-        toastr.error('You need to login to access this page');
+        toast.error('You need to login to access this page');
+        this.props.history.push(urls.LOGIN_PATH);
       }
     }
 
