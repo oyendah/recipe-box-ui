@@ -81,10 +81,6 @@
     }]
   },
   "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "./webpack.config.js"
-      }
-    }
+    "import/resolver": "webpack"
   }
 }
